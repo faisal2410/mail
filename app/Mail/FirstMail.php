@@ -3,11 +3,14 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Mail\Mailables\Attachment;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class FirstMail extends Mailable
 {
@@ -30,7 +33,8 @@ class FirstMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'First Mail',
+             from: new Address('faisal2410@yahoo.com', 'Faisal ahmed'),
+            subject: 'Hello From Faisal ahmed',
         );
     }
 
@@ -39,6 +43,7 @@ class FirstMail extends Mailable
      */
     public function content(): Content
     {
+
         return new Content(
             view: 'mails.first-mail',
         );
@@ -51,6 +56,9 @@ class FirstMail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        return [
+
+              Attachment::fromPath(Storage::path('public/faisal.jpg')),
+        ];
     }
 }

@@ -15,7 +15,7 @@
     </head>
     <body class="antialiased">
 <div class="max-w-6xl mx-auto mt-12">
-    <a href="/send-mail" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700">Send First Mail</a>
+    <a href="/send-mail" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 text-white">Send First Mail</a>
 
 </div>
     </body>
