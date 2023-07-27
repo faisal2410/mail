@@ -58,7 +58,9 @@ class FirstMail extends Mailable
     {
         return [
 
-              Attachment::fromPath(Storage::path('public/faisal.jpg')),
+              Attachment::fromPath(Storage::path('public/faisal.jpg'))
+               ->as('your_image.jpg')
+                ->withMime('image/jpg'),
         ];
     }
 }
