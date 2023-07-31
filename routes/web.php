@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestEnrollmentController;
 use App\Mail\FirstMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +23,11 @@ Route::get('/', function () {
 Route::get('/send-mail', function () {
   Mail::to('test@test.com')->send(new FirstMail("Faisal Ahmed"));
 });
+
+
+
+
+// ->cc($moreUsers)
+//     ->bcc($evenMoreUsers)
+
+Route::get("/send-testenrollment",[TestEnrollmentController::class,'sendTestNotification']);
