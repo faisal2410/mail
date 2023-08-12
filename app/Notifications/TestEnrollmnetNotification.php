@@ -13,6 +13,8 @@ class TestEnrollmnetNotification extends Notification
 
     private $enrollmentData;
 
+    
+
     /**
      * Create a new notification instance.
      */
@@ -34,8 +36,12 @@ class TestEnrollmnetNotification extends Notification
     /**
      * Get the mail representation of the notification.
      */
-    public function toMail(object $notifiable): MailMessage
+    public function toMail(object $notifiable,): MailMessage
     {
+
+
+
+
         return (new MailMessage)
                     ->line($this->enrollmentData['body'])
                     ->action($this->enrollmentData['text'], $this->enrollmentData['url'])

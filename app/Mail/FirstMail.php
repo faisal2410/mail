@@ -46,6 +46,7 @@ class FirstMail extends Mailable
 
         return new Content(
             view: 'mails.first-mail',
+            with:['name'=>$this->name]
         );
     }
 

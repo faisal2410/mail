@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\TestEnrollmentController;
+use App\Events\NewStudentAdded;
 use App\Mail\FirstMail;
+use App\Models\Student;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestEnrollmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,13 @@ Route::get('/', function () {
 });
 
 Route::get('/send-mail', function () {
+
+    $items=new Student();
+    $items->name='test';
+    $items->email='test2@test.com';
+    $items->save();
+    event(new NewStudentAdded($items));
+
   Mail::to('test@test.com')->send(new FirstMail("Faisal Ahmed"));
 });
 
